@@ -10,6 +10,14 @@ const transporter = nodemailer.createTransport({
 });
 
 export const sendMail = async (subject, text, html) => {
+    console.log({
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS
+        }
+    });
     try {
         // Verify connection configuration
         await transporter.verify();
