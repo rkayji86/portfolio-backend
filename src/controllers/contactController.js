@@ -1,10 +1,10 @@
-import { sendMail } from "../utils/email.js";
+import { sendEmailHttp, sendMail } from "../utils/email.js";
 
 export const submitContact = async (req, res) => {
     try {
         const { name, email, message } = req.body;
         // Send Email
-        await sendMail(
+        await sendEmailHttp(
             `New Contact from ${name}`,
             `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
             `
